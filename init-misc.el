@@ -11,3 +11,5 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
 
+(require 'darkroom-mode)
+(setq darkroom-mode-face-foreground "gray50")

@@ -28,6 +28,11 @@
 (setq custom-file "~/.emacsd/customizations.el")
 (load custom-file 'noerror)
 
+;; Ask for confirmation before quitting Emacs
+(add-hook 'kill-emacs-query-functions
+          (lambda () (y-or-n-p "Do you really want to exit Emacs? "))
+          'append)
+
 ;; allows 'emacsclient' to connect to already running Emacs
 (server-start)
 

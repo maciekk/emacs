@@ -13,8 +13,14 @@
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-zenburn)
+     (color-theme-midnight)
+     ;(color-theme-zenburn)
 ))
 
-;; other themes that I like:
-;;  (color-theme-midnight)
+;; NOTE: this should be only for Windows.
+;; Requires download of font pack from:
+;;   http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=17879
+;; Idea from:
+;;  http://oscarbonilla.com/2008/01/beautiful-emacs-windows-edition/
+(set-default-font
+ "-outline-Consolas-normal-r-normal-normal-14-97-96-96-c-*-iso8859-1")
