@@ -27,7 +27,9 @@
 (global-set-key "\C-ca" 'org-agenda)
 ;(global-set-key "\C-cb" 'org-iswitchb)
 
-(org-remember-insinuate)
+; TODO: why does Emacs complain about this now?
+; (Symbol's function definition is void: org-remember-insinuate)
+;(org-remember-insinuate)
 (setq org-directory "~/org/")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-use-speed-commands t)
