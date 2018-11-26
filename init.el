@@ -36,11 +36,12 @@
 ;(load-file "~/emacs/init-icicles.el")
 
 ;; personal key bindings
-(global-set-key "\C-cb" 'bury-buffer)
+(global-set-key "\C-c\C-b" 'bury-buffer)
+(global-set-key "\C-c\C-\M-b" 'bury-buffer)
 
 
 ;; keep customizations separate
-(setq custom-file "~/.emacsd/customizations.el")
+(setq custom-file "~/.emacs.d/customizations.el")
 (load custom-file 'noerror)
 
 ;; Ask for confirmation before quitting Emacs
@@ -53,10 +54,12 @@
 
 (put 'narrow-to-region 'disabled nil)
 
+;; TODO: only for OSX though?
+(global-set-key (kbd "M-`") `other-frame)
+
 ;; This should be last thing in file.
 (require 'cl-macs)
 (message "init.el loaded in %.1fs"
 	 (cl-destructuring-bind (hi lo usec psec) (current-time)
 	   (- (+ hi lo) (+ (nth 0 *emacs-load-start*)
 			   (nth 1 *emacs-load-start*)))))
-
