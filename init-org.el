@@ -20,38 +20,38 @@
 	("leisure" . ?l)
 	))
 
+(setq org-directory "~/Google Drive/org/")
 (custom-set-variables
- '(org-agenda-files (quote ("~/org/gtd.org"))))
+ '(org-agenda-files (quote ("~/Google Drive/org/gtd.org"))))
 
-(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
-;(global-set-key "\C-cb" 'org-iswitchb)
+(global-set-key "\C-cb" 'org-switchb)
+(global-set-key "\C-cl" 'org-store-link)
 
-; TODO: why does Emacs complain about this now?
-; (Symbol's function definition is void: org-remember-insinuate)
-;(org-remember-insinuate)
-(setq org-directory "~/org/")
-(setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-use-speed-commands t)
 (setq org-completion-use-ido t)
 (setq org-return-follows-link t)
-(setq org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
 (setq org-startup-folded 'content)
 (setq org-special-ctrl-a t)
 (setq org-special-ctrl-e t)
 (setq org-special-ctrl-k nil)
 (setq org-agenda-span 3)
 (setq org-agenda-start-on-weekday nil)
+(setq org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
 
 (setq org-refile-targets (quote (("gtd.org" :maxlevel . 1) ("someday.org" :level . 2))))
+(setq org-archive-location "archives/%s_archive::")
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/notes.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/Google Drive/org/capture.org" "Tasks")
 	 "* TODO %?\n  %i")
-	("T" "Todo w/context" entry (file+headline "~/org/notes.org" "Tasks")
+	("T" "Todo w/context" entry (file+headline "~/Google Drive/org/capture.org" "Tasks")
 	 "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+headline "~/org/journal.org" "Journal")
+        ("j" "Journal" entry (file+headline "~/Google Drive/org/journal.org" "Journal")
 	 "* %T\n%?" :prepend t)))
+;; Following used only as default, if templates do not provide a destination.
+(setq org-default-notes-file (concat org-directory "/capture.org"))
 
 ;; From:
 ;;  http://newartisans.com/2007/08/using-org-mode-as-a-day-planner/

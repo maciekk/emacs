@@ -26,8 +26,6 @@
 (load-file "~/emacs/init-org.el")
 ;; TODO: look into fixing the following load:
 ;(load-file "~/emacs/init-smex.el")
-;; TODO: gate this to be only under Windows
-;(load-file "~/emacs/init-w32.el")
 (load-file "~/emacs/init-misc.el")
 
 ;; various fixes for broken features
@@ -37,11 +35,12 @@
 ;(load-file "~/emacs/init-icicles.el")
 
 ;; personal key bindings
-(global-set-key "\C-cb" 'bury-buffer)
+(global-set-key "\C-c\C-b" 'bury-buffer)
+(global-set-key "\C-c\C-\M-b" 'bury-buffer)
 
 
 ;; keep customizations separate
-(setq custom-file "~/.emacsd/customizations.el")
+(setq custom-file "~/.emacs.d/customizations.el")
 (load custom-file 'noerror)
 
 ;; Ask for confirmation before quitting Emacs
@@ -59,3 +58,6 @@
 ;	   (- (+ hi lo) (+ (first *emacs-load-start*)
 ;			   (second *emacs-load-start*)))))
 (put 'narrow-to-region 'disabled nil)
+
+;; TODO: only for OSX though?
+(global-set-key (kbd "M-`") `other-frame)
