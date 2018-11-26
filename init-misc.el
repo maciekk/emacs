@@ -1,10 +1,5 @@
 ;; init for miscellaneous libraries
 
-;; (setq browse-url-browser-function 'browse-url-generic
-;;       browse-url-generic-program "google-chrome.exe")
-;; TODO: fix
-;(require 'google-chrome)
-
 (autoload 'pomodoro "pomodoro.el")
 
 ;; better "same name" buffer disambiguation
@@ -19,7 +14,7 @@
   ;;(toggle-frame-fullscreen)
   (darkroom-mode)	; switch to darkroom-tentative-mode
 )
-(global-set-key [(control meta return)] `my-darkroom-mode)
+(global-set-key [(control meta return)] `darkroom-mode)
 
 (require 'package)
 ;;(add-to-list 'package-archives
