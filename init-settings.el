@@ -2,7 +2,7 @@
 ;; This is a catch-all bin for (setq ...)s.
 
 ;; TODO: generalize this to be usable across home/work
-(setq default-directory "c:/Users/Maciek/")
+;(setq default-directory "c:/Users/Maciek/")
 
 ;; ideas from http://www.youtube.com/watch?v=a-jRN_ba41w
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -17,4 +17,4 @@
 
 (setq calendar-week-start-day 1)
 
-(desktop-save-mode 1)
+;;(desktop-save-mode 1)
