@@ -83,17 +83,28 @@
 (setq org-agenda-sorting-strategy '(time-up todo-state-down priority-down))
 
 (defun mk/org-get-todo-keyword-value ()
+  "Return 'sorting value' for TODO keyword of headline under point."
   (if (looking-at org-complex-heading-regexp)
       (- 9999 (length (member (match-string 2)
 			      org-todo-keywords-1)))))
 
+(defun mk/org-next-open-task ()
+  "Advance point to next taks that is 'not done'."
+  (interactive)
+  (while (not (looking-at org-not-done-heading-regexp))
+    (org-next-visible-heading 1)))
+
 (defun mk/org-resort-todos ()
+  "Sort the tasks in subtree under point; order:
+  - first, by TODO keyword (e.g., DONE > STARTED > NEXT > TODO)
+  - second, by PRIORITY"
   (interactive)
   (outline-up-heading 10)
   (org-sort-entries t ?p)
   (org-sort-entries t ?F 'mk/org-get-todo-keyword-value)
   (org-overview)
-  (org-cycle))
+  (org-cycle)
+  (mk/org-next-open-task))
 
 (add-hook 'org-load-hook
 	  (lambda ()
