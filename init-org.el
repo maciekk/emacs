@@ -28,6 +28,7 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-switchb)
 (global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cr" 'org-capture)
 
 (setq org-use-speed-commands t)
 (setq org-completion-use-ido t)
@@ -78,9 +79,8 @@
       '(("Effort_ALL" .
 	 "0 0:15 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00")))
 
+;; SORTING
 (setq org-agenda-sorting-strategy '(time-up todo-state-down priority-down))
-
-(define-key global-map "\C-cr" 'org-capture)
 
 (defun mk/org-get-todo-keyword-value ()
   (if (looking-at org-complex-heading-regexp)
@@ -98,4 +98,3 @@
 (add-hook 'org-load-hook
 	  (lambda ()
 	    (define-key org-mode-map "\C-cg" 'mk/org-resort-todos)))
-
