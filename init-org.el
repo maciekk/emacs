@@ -80,7 +80,6 @@
 
 (setq org-agenda-sorting-strategy '(time-up todo-state-down priority-down))
 
-;(define-key global-map "\C-cr" 'org-remember)
 (define-key global-map "\C-cr" 'org-capture)
 
 (defun mk/org-get-todo-keyword-value ()
