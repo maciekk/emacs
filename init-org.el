@@ -39,9 +39,18 @@
 (setq org-special-ctrl-k nil)
 (setq org-agenda-span 3)
 (setq org-agenda-start-on-weekday nil)
-(setq org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
+(setq org-blank-before-new-entry
+      '((heading . auto) (plain-list-item . auto)))
+(setq org-cycle-separator-lines 1)
+(setq org-ellipsis "→")
 
-(setq org-refile-targets (quote (("gtd.org" :maxlevel . 1) ("someday.org" :level . 2))))
+(setq org-refile-targets
+      '(("gtd.org" :maxlevel . 1)
+	("someday.org" :level . 2)
+	("self-dev.org" :level . 1)
+	("read.org" :level . 1)
+	("watch.org" :level . 1)
+	))
 (setq org-archive-location "archives/%s_archive::")
 
 (setq org-capture-templates

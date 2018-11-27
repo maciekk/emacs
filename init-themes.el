@@ -38,6 +38,8 @@
   (defun mk/rebecca-theme-hook ()
     (set-face-attribute 'org-todo nil :weight 'normal
 			:foreground "#FF8080" :background "#552525")
+    (set-face-attribute 'org-ellipsis nil :weight 'normal
+			:foreground "#FF8080" :background "#552525")
     (set-face-attribute 'org-done nil :weight 'normal
 			:foreground "#77DD77" :background "#335533")
     (set-face-attribute 'org-level-2 nil :weight 'normal :height 1.1)
@@ -50,6 +52,8 @@
   :init
   (defun mk/ashes-theme-hook ()
     (set-face-attribute 'org-todo nil :weight 'normal
+			:foreground "#CC4848" :background "#441515")
+    (set-face-attribute 'org-ellipsis nil :weight 'normal
 			:foreground "#CC4848" :background "#441515")
     (set-face-attribute 'org-done nil :weight 'normal
 			:foreground "#48BB48" :background "#154415"))
