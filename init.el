@@ -17,13 +17,6 @@
 ;; TODO: only add this if path exists.
 (add-to-list 'load-path (expand-file-name "~/emacs/site-lisp"))
 
-;; set the command key for MacBook Pro
-;; TODO: should we gate this with a check for OS X?
-(setq mac-option-key-is-meta nil
-      mac-command-key-is-meta t
-      mac-command-modifier 'meta
-      mac-option-modifier 'none)
-
 ;; load various initializations
 (load-file "~/emacs/init-settings.el")
 (load-file "~/emacs/init-completion.el")
@@ -31,6 +24,15 @@
 (load-file "~/emacs/init-misc.el")
 (load-file "~/emacs/init-looks.el")
 (load-file "~/emacs/init-themes.el")
+
+;; OS-specific initializations
+(cond
+ ((string-equal system-type "windows-nt") ; Microsoft Windows
+  (progn
+    (load-file "~/emacs/init-w32.el")))
+ ((string-equal system-type "darwin") ; Mac OS X
+  (progn
+    (load-file "~/emacs/init-osx.el"))))
 
 ;; various fixes for broken features
 (load-file "~/emacs/init-fixes.el")
@@ -50,12 +52,6 @@
 ;; allows 'emacsclient' to connect to already running Emacs
 (server-start)
 
-;; This should be last thing in file.
-;; TODO: fix below
-;(message "init.el loaded in %.1fs"
-;	 (destructuring-bind (hi lo ms) (current-time)
-;	   (- (+ hi lo) (+ (first *emacs-load-start*)
-;			   (second *emacs-load-start*)))))
 (put 'narrow-to-region 'disabled nil)
 
 ;; TODO: only for OSX though?
@@ -65,3 +61,14 @@
 ;; context: https://stackoverflow.com/questions/25125200/emacs-error-ls-does-not-support-dired
 (when (string= system-type "darwin")       
   (setq dired-use-ls-dired nil))
+
+;; This should be last thing in file.
+(require 'cl-macs)
+(message "init.el loaded in %.1fs"
+	 (cl-destructuring-bind (hi lo usec psec) (current-time)
+;; also OSX change
+;; context: https://stackoverflow.com/questions/25125200/emacs-error-ls-does-not-support-dired
+(when (string= system-type "darwin")       
+  (setq dired-use-ls-dired nil))
+	   (- (+ hi lo) (+ (nth 0 *emacs-load-start*)
+			   (nth 1 *emacs-load-start*)))))
