@@ -22,12 +22,13 @@
 
 (setq org-directory "~/Google Drive/org/")
 (custom-set-variables
- '(org-agenda-files (quote ("~/Google Drive/org/gtd.org"))))
+ '(org-agenda-files `(,(concat org-directory "gtd.org"))))
 
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-switchb)
 (global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cr" 'org-capture)
 
 (setq org-use-speed-commands t)
 (setq org-completion-use-ido t)
@@ -44,14 +45,14 @@
 (setq org-archive-location "archives/%s_archive::")
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Google Drive/org/capture.org" "Tasks")
+      `(("t" "Todo" entry (file+headline ,(concat org-directory "capture.org") "Tasks")
 	 "* TODO %?\n  %i")
-	("T" "Todo w/context" entry (file+headline "~/Google Drive/org/capture.org" "Tasks")
+	("T" "Todo w/context" entry (file+headline ,(concat org-directory "capture.org") "Tasks")
 	 "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+headline "~/Google Drive/org/journal.org" "Journal")
+        ("j" "Journal" entry (file+headline ,(concat org-directory "journal.org") "Journal")
 	 "* %T\n%?" :prepend t)))
 ;; Following used only as default, if templates do not provide a destination.
-(setq org-default-notes-file (concat org-directory "/capture.org"))
+(setq org-default-notes-file (concat org-directory "capture.org"))
 
 ;; From:
 ;;  http://newartisans.com/2007/08/using-org-mode-as-a-day-planner/
@@ -78,10 +79,8 @@
       '(("Effort_ALL" .
 	 "0 0:15 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00")))
 
+;; SORTING
 (setq org-agenda-sorting-strategy '(time-up todo-state-down priority-down))
-
-;(define-key global-map "\C-cr" 'org-remember)
-(define-key global-map "\C-cr" 'org-capture)
 
 (defun mk/org-get-todo-keyword-value ()
   (if (looking-at org-complex-heading-regexp)
@@ -99,4 +98,3 @@
 (add-hook 'org-load-hook
 	  (lambda ()
 	    (define-key org-mode-map "\C-cg" 'mk/org-resort-todos)))
-
