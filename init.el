@@ -43,6 +43,7 @@
 ;; personal key bindings
 (global-set-key "\C-c\C-b" 'bury-buffer)
 (global-set-key "\C-c\C-\M-b" 'bury-buffer)
+(global-set-key "\C-xg" 'magit-status)
 
 ;; Ask for confirmation before quitting Emacs
 (add-hook 'kill-emacs-query-functions

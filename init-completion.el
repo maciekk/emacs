@@ -3,6 +3,7 @@
 ;; Interesting intro to IDO:
 ;;  http://www.masteringemacs.org/articles/2010/10/10/introduction-to-ido-mode/
 (ido-mode 1)
+(ido-grid-mode)
 (setq ido-everywhere t)
 (setq ido-enable-flex-matching t)
 (setq ido-use-filename-at-point 'guess)
@@ -11,9 +12,6 @@
 ;; NOTE: flex matching algo has some undesirable traits; see following
 ;; link for more info, and improved algo:
 ;;  http://scottfrazersblog.blogspot.com/2009/12/emacs-better-ido-flex-matching.html
-
-;; TODO: try out grid mode
-;; https://github.com/larkery/ido-grid-mode.el
 
 ;; Config for 'smex'; like 'ido', but for M-x commands.
 (require 'smex)
