@@ -26,9 +26,8 @@
 
 ;; load various initializations
 (load-file "~/emacs/init-settings.el")
-(load-file "~/emacs/init-ido.el")
+(load-file "~/emacs/init-completion.el")
 (load-file "~/emacs/init-org.el")
-(load-file "~/emacs/init-smex.el")
 (load-file "~/emacs/init-misc.el")
 (load-file "~/emacs/init-looks.el")
 (load-file "~/emacs/init-themes.el")
