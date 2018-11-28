@@ -72,11 +72,9 @@
 
 (defhydra mk/themes-hydra (:hint nil :color pink)
   "
-Themes:
-sub_a_tomic    em_b_ers   _c_reamsody  _d_arktooth  _f_latland    _g_ruvbox
-_G_reenscreen  as_h_es    d_j_ango     _l_euven     _m_onokai-alt _M_ustang
-_p_oet         _r_ebecca  _t_wilight   ca_v_e-light
-_DEL_: none
+Light: _i_odine       _l_euven   _p_oet       _t_wilight    ca_v_e-light
+Dark:  sub_a_tomic    em_b_ers   _c_reamsody  _d_arktooth   _f_latland    _g_ruvbox
+       _G_reenscreen  as_h_es    d_j_ango     _m_onokai-alt _M_ustang     _r_ebecca
 "
   ("a" (load-theme 'subatomic       t))
   ("b" (load-theme 'base16-embers   t))
@@ -86,6 +84,7 @@ _DEL_: none
   ("g" (load-theme 'gruvbox         t))
   ("G" (load-theme 'base16-greenscreen t))
   ("h" (load-theme 'base16-ashes    t))
+  ("i" (load-theme 'iodine          t))
   ("j" (load-theme 'django          t))
   ("l" (load-theme 'leuven          t))
   ("m" (load-theme 'monokai-alt     t))
