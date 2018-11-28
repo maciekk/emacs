@@ -58,6 +58,9 @@
 ;; Allows 'emacsclient' to connect to already running Emacs.
 (server-start)
 
+;; Start off by always loading the main Org file.
+(find-file "~/Google Drive/org/gtd.org")
+
 ;; This should be penultimate, just before the "disables".
 (require 'cl-macs)
 (message "init.el loaded in %.1fs"
