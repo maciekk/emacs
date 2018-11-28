@@ -38,13 +38,20 @@
   (defun mk/rebecca-theme-hook ()
     (set-face-attribute 'org-todo nil :weight 'normal
 			:foreground "#FF8080" :background "#552525")
-    (set-face-attribute 'org-ellipsis nil :weight 'normal
-			:foreground "#FF8080" :background "#552525")
     (set-face-attribute 'org-done nil :weight 'normal
 			:foreground "#77DD77" :background "#335533")
     (set-face-attribute 'org-level-2 nil :weight 'normal :height 1.1)
     (set-face-attribute 'org-level-2 nil :weight 'normal :height 1.0))
   (mk/add-theme-hook 'rebecca #'mk/rebecca-theme-hook))
+
+(use-package monokai-alt
+  :ensure monokai-alt-theme
+  :defer t
+  :init
+  (defun mk/monokai-alt-theme-hook ()
+    (set-face-attribute 'org-todo nil :box nil)
+    (set-face-attribute 'org-done nil :box nil))
+  (mk/add-theme-hook 'monokai-alt #'mk/monokai-alt-theme-hook))
 
 (use-package base16-ashes
   :ensure base16-theme
@@ -52,8 +59,6 @@
   :init
   (defun mk/ashes-theme-hook ()
     (set-face-attribute 'org-todo nil :weight 'normal
-			:foreground "#CC4848" :background "#441515")
-    (set-face-attribute 'org-ellipsis nil :weight 'normal
 			:foreground "#CC4848" :background "#441515")
     (set-face-attribute 'org-done nil :weight 'normal
 			:foreground "#48BB48" :background "#154415"))
