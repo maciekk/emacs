@@ -129,10 +129,23 @@
   (org-cycle)
   (mk/org-next-open-task))
 
+;; From:
+;;   https://stackoverflow.com/questions/6997387/how-to-archive-all-the-done-tasks-using-a-single-command/27043756#27043756
+(defun mk/org-archive-done ()
+  "Archive all DONE items in subtree under point."
+  (interactive)
+  (org-map-entries
+   (lambda ()
+     (org-archive-subtree)
+     (setq org-map-continue-from (outline-previous-heading)))
+   "+TODO=\"DONE\"|+TODO=\"CANCELLED\"" 'tree))
+
 ;;; Own bindings
 (add-hook 'org-load-hook
 	  (lambda ()
-	    (define-key org-mode-map "\C-cg" 'mk/org-resort-todos)))
+	    (define-key org-mode-map "\C-cg" 'mk/org-resort-todos)
+	    (define-key org-mode-map "\C-cv" 'mk/org-archive-done)
+	    ))
 
 ;;; Additional packages
 (use-package org-bullets
@@ -140,5 +153,3 @@
   :init
   (add-hook 'org-mode-hook (lambda ()
                              (org-bullets-mode 1))))
-
-
