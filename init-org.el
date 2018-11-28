@@ -55,19 +55,7 @@
     (setq org-agenda-span 3
 	  org-agenda-start-on-weekday 0
 	  org-agenda-sorting-strategy '(time-up todo-state-down priority-down))
-    (setq org-agenda-files
-	  (mapcar (lambda (p) (concat org-directory p))
-		  '("gtd.org"
-		    "someday.org"
-		    "self-dev.org"
-		    "read.org"
-		    "watch.org"
-		    "think.org"
-		    "zettel.org"
-		    "refs.org"
-		    "emacs.org"
-		    "emacs-org.org"
-		    "fun.org")))
+    (setq org-agenda-files (list org-directory))
     ;; Originally from:
     ;;  http://newartisans.com/2007/08/using-org-mode-as-a-day-planner/
     (setq org-agenda-custom-commands
