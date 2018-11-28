@@ -72,7 +72,7 @@
 
 (defhydra mk/themes-hydra (:hint nil :color pink)
   "
-Light: _i_odine       _l_euven   _p_oet       _t_wilight    ca_v_e-light
+Light: _i_odine       _l_euven   _p_oet       _t_wilight    ca_v_e-light  h_y_dandata
 Dark:  sub_a_tomic    em_b_ers   _c_reamsody  _d_arktooth   _f_latland    _g_ruvbox
        _G_reenscreen  as_h_es    d_j_ango     _m_onokai-alt _M_ustang     _r_ebecca
 "
@@ -93,6 +93,7 @@ Dark:  sub_a_tomic    em_b_ers   _c_reamsody  _d_arktooth   _f_latland    _g_ruv
   ("r" (load-theme 'rebecca         t))
   ("t" (load-theme 'twilight-bright t))
   ("v" (load-theme 'base16-atelier-cave-light t))
+  ("y" (load-theme 'hydandata-light t))
   ("DEL" (mk/disable-all-themes))
   ("RET" nil "done" :color blue))
 
