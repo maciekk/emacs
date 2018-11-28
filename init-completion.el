@@ -1,3 +1,13 @@
+;; Use hippie-expand instead of default dabbrev-expand.
+;; Potentially useful config options to try:
+;;   http://trey-jackson.blogspot.com/2007/12/emacs-tip-5-hippie-expand.html
+(global-set-key (kbd "M-/") 'hippie-expand)
+(setq hippie-expand-try-functions-list '(try-expand-dabbrev
+					 try-complete-file-name-partially try-complete-file-name
+					 try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill
+					 try-expand-all-abbrevs try-expand-list try-expand-line
+					 try-complete-lisp-symbol-partially try-complete-lisp-symbol))
+
 ;; Configuration for 'ido'
 ;;
 ;; Interesting intro to IDO:
