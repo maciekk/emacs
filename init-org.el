@@ -42,10 +42,6 @@
 	  org-special-ctrl-k nil
 	  org-use-speed-commands t
 	  org-return-follows-link t)
-;;; Own bindings
-    (add-hook 'org-load-hook
-	      (lambda ()
-		(define-key org-mode-map "\C-cg" 'mk/org-resort-todos)))
 
 ;;; Misc
     (setq org-cycle-separator-lines 1
@@ -133,6 +129,10 @@
   (org-cycle)
   (mk/org-next-open-task))
 
+;;; Own bindings
+(add-hook 'org-load-hook
+	  (lambda ()
+	    (define-key org-mode-map "\C-cg" 'mk/org-resort-todos)))
 
 ;;; Additional packages
 (use-package org-bullets
