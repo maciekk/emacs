@@ -25,6 +25,11 @@
 (setq custom-file "~/.emacs.d/customizations.el")
 (load custom-file 'noerror)
 
+(defun maybe-load-file (fname)
+  "Load the file if it exists."
+  (if (file-readable-p fname)
+      (load-file fname)))
+
 ;; load various initializations
 (load-file "~/emacs/init-settings.el")
 (load-file "~/emacs/init-completion.el")
@@ -44,6 +49,9 @@
 
 ;; various fixes for broken features
 (load-file "~/emacs/init-fixes.el")
+
+;; Load any local configuration.
+(maybe-load-file "~/emacs/init-local.el")
 
 ;; personal key bindings
 (global-set-key "\C-c\C-b" 'bury-buffer)
