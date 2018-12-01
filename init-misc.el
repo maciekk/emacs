@@ -23,3 +23,6 @@
 
 ;; elfeed config
 (setq shr-width 80) ; text width of content pane
+
+;; for moving windows
+(require 'buffer-move)
