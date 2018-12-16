@@ -1,5 +1,14 @@
 ;; init for miscellaneous libraries
 
+;; magit fix; see:
+;; https://emacs.stackexchange.com/questions/32055/not-inside-a-git-repository
+(use-package exec-path-from-shell
+   :if (memq window-system '(mac ns))
+   :ensure t
+   :config
+   (exec-path-from-shell-initialize))
+
+
 (autoload 'pomodoro "pomodoro.el")
 
 ;; better "same name" buffer disambiguation
@@ -23,3 +32,11 @@
 
 ;; elfeed config
 (setq shr-width 80) ; text width of content pane
+
+(require 'sublimity)
+(require 'sublimity-scroll)
+;;(require 'sublimity-map)  ; distracting
+(require 'sublimity-attractive)
+
+;; turn on Powerline-like modeline
+(telephone-line-mode 1)
