@@ -55,3 +55,18 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 ;(global-set-key (kbd "M-B") 'helm-mini)
 (global-set-key (kbd "C-c h o") 'helm-occur)
+
+(setq
+ ; do not display invisible candidates
+ ;helm-quick-update                     t
+ ; open helm buffer inside current window, not occupy whole other window
+ ;helm-split-window-in-side-p           t
+ ; fuzzy matching buffer names when non--nil
+ helm-buffers-fuzzy-matching           t
+ ; move to end or beginning of source when reaching top or bottom of source.
+ ;helm-move-to-line-cycle-in-source     t
+ ; search for library in `require' and `declare-function' sexp.
+ ;helm-ff-search-library-in-sexp        t
+ ; scroll 8 lines other window using M-<next>/M-<prior>
+ helm-scroll-amount                    8
+ helm-ff-file-name-history-use-recentf t)
