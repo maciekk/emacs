@@ -18,3 +18,7 @@
 (setq calendar-week-start-day 1)
 
 ;;(desktop-save-mode 1)
+
+;; Turn on auto-fill-mode for key major modes.
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
