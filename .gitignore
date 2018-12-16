@@ -1,0 +1,2 @@
+# Ignore intentionally local configuration data.
+init-local.el
