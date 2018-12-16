@@ -49,7 +49,7 @@
 
 ;;; Agenda
     (setq org-agenda-span 3
-	  org-agenda-start-on-weekday 0
+	  org-agenda-start-on-weekday 1
 	  org-agenda-sorting-strategy '(time-up todo-state-down priority-down))
     (setq org-agenda-files (list org-directory))
     ;; Originally from:
@@ -83,16 +83,18 @@
     ;;  http://doc.norang.ca/org-mode.html
     (setq org-todo-keywords
 	  (quote ((sequence "TODO(t)" "NEXT(n)" "STARTED(s)" "WAITING(w@/!)" "SOMEDAY(z)" "|" "DONE(d!/!)" "CANCELLED(c@/!)"))))
-    (setq org-tag-alist
-	  '(("desk" . ?d)
-	    ("work" . ?w)
-	    ("garden" . ?g)
-	    ("errands" . ?e)
-	    ("basement" . ?b)
-	    ("kitchen" . ?k)
-	    ("Net" . ?n)
-	    ("leisure" . ?l)
-	    ))
+    ;; Do not use fast tag selection if want to default to helm for this.
+    ;; See: https://github.com/emacs-helm/helm/issues/1890
+    ;; (setq org-tag-alist
+    ;; 	  '(("desk" . ?d)
+    ;; 	    ("work" . ?w)
+    ;; 	    ("garden" . ?g)
+    ;; 	    ("errands" . ?e)
+    ;; 	    ("basement" . ?b)
+    ;; 	    ("kitchen" . ?k)
+    ;; 	    ("Net" . ?n)
+    ;; 	    ("leisure" . ?l)
+    ;; 	    ))
     (setq org-global-properties
 	  '(("Effort_ALL" .
 	     "0 0:15 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00")))
@@ -153,3 +155,6 @@
   :init
   (add-hook 'org-mode-hook (lambda ()
                              (org-bullets-mode 1))))
+
+;; Org rifle mode
+(require 'helm-org-rifle)
