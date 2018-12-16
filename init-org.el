@@ -16,7 +16,7 @@
 	  org-default-notes-file (concat org-directory "capture.org"))
 
 ;;; Startup
-    (setq org-startup-folded 'content
+    (setq org-startup-folded 'showall
 	  org-startup-indented t)
 
 ;;; Visuals
@@ -44,7 +44,7 @@
 	  org-return-follows-link t)
 
 ;;; Misc
-    (setq org-cycle-separator-lines 1
+    (setq org-cycle-separator-lines 2
 	  org-blank-before-new-entry '((heading . auto) (plain-list-item . auto)))
 
 ;;; Agenda

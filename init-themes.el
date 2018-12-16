@@ -44,6 +44,7 @@
     (set-face-attribute 'org-level-2 nil :weight 'normal :height 1.0))
   (mk/add-theme-hook 'rebecca #'mk/rebecca-theme-hook))
 
+
 (use-package monokai-alt
   :ensure monokai-alt-theme
   :defer t
@@ -63,6 +64,14 @@
     (set-face-attribute 'org-done nil :weight 'normal
 			:foreground "#48BB48" :background "#154415"))
   (mk/add-theme-hook 'base16-ashes #'mk/ashes-theme-hook))
+
+(use-package busybee
+  :ensure busybee-theme
+  :defer t
+  :init
+  (defun mk/busybee-theme-hook ()
+    (set-face-attribute 'helm-selection nil :background "#003300"))
+  (mk/add-theme-hook 'busybee #'mk/busybee-theme-hook))
 
 (use-package hydra
   :ensure t

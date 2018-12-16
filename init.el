@@ -54,6 +54,7 @@
 (maybe-load-file "~/emacs/init-local.el")
 
 ;; personal key bindings
+(global-set-key "\C-cz" 'bury-buffer)
 (global-set-key "\C-c\C-b" 'bury-buffer)
 (global-set-key "\C-c\C-\M-b" 'bury-buffer)
 (global-set-key "\C-xg" 'magit-status)
