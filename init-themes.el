@@ -73,6 +73,14 @@
     (set-face-attribute 'helm-selection nil :background "#003300"))
   (mk/add-theme-hook 'busybee #'mk/busybee-theme-hook))
 
+(use-package hydandata-light
+  :ensure hydandata-light-theme
+  :defer t
+  :init
+  (defun mk/hydandata-theme-hook ()
+    (set-face-attribute 'helm-selection nil :background "#BBFFBB"))
+  (mk/add-theme-hook 'hydandata-light #'mk/hydandata-theme-hook))
+
 (use-package hydra
   :ensure t
   :config
@@ -81,14 +89,16 @@
 
 (defhydra mk/themes-hydra (:hint nil :color pink)
   "
-Light: _i_odine       _l_euven   _p_oet       _t_wilight    ca_v_e-light  h_y_dandata
-Dark:  sub_a_tomic    em_b_ers   _c_reamsody  _d_arktooth   _f_latland    _g_ruvbox
-       _G_reenscreen  as_h_es    d_j_ango     _m_onokai-alt _M_ustang     _r_ebecca
+Light: _i_odine     _l_euven       _p_oet       _t_wilight    ca_v_e-light  h_y_dandata
+Dark:  sub_a_tomic  _b_usybee      _c_reamsody  _d_arktooth   _e_mbers      _f_latland
+       _g_ruvbox    _G_reenscreen  as_h_es      d_j_ango      _m_onokai-alt _M_ustang
+       _r_ebecca    bad_w_olf
 "
   ("a" (load-theme 'subatomic       t))
-  ("b" (load-theme 'base16-embers   t))
+  ("b" (load-theme 'busybee         t))
   ("c" (load-theme 'creamsody       t))
   ("d" (load-theme 'darktooth       t))
+  ("e" (load-theme 'base16-embers   t))
   ("f" (load-theme 'flatland        t))
   ("g" (load-theme 'gruvbox         t))
   ("G" (load-theme 'base16-greenscreen t))
@@ -103,6 +113,7 @@ Dark:  sub_a_tomic    em_b_ers   _c_reamsody  _d_arktooth   _f_latland    _g_ruv
   ("t" (load-theme 'twilight-bright t))
   ("v" (load-theme 'base16-atelier-cave-light t))
   ("y" (load-theme 'hydandata-light t))
+  ("w" (load-theme 'badwolf         t))
   ("DEL" (mk/disable-all-themes))
   ("RET" nil "done" :color blue))
 
