@@ -37,9 +37,9 @@
     (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
 
 ;;; Key behaviour
-    (setq org-special-ctrl-a t
-	  org-special-ctrl-e t
-	  org-special-ctrl-k nil
+    (setq org-special-ctrl-a nil
+	  org-special-ctrl-e nil
+	  org-special-ctrl-k t
 	  org-use-speed-commands t
 	  org-return-follows-link t)
 
