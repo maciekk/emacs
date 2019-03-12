@@ -11,9 +11,9 @@
     (global-set-key "\C-cl" 'org-store-link)
 
 ;;; Paths
-    (setq org-directory "~/Google Drive/org/"
+    (setq org-directory "~/Google Drive/org/GTD/"  ; used for capture, agenda
 	  org-archive-location "archives/%s_archive::"
-	  org-default-notes-file (concat org-directory "capture.org"))
+	  org-default-notes-file (concat org-directory "inbox.org"))
 
 ;;; Startup
     (setq org-startup-folded 'showall
@@ -50,6 +50,7 @@
 ;;; Agenda
     (setq org-agenda-span 3
 	  org-agenda-start-on-weekday 1
+	  org-agenda-window-setup 'only-window
 	  org-agenda-sorting-strategy '(time-up todo-state-down priority-down))
     (setq org-agenda-files (list org-directory))
     ;; Originally from:
@@ -59,9 +60,16 @@
 	    ("c" todo "DONE|DEFERRED|CANCELLED" nil)
 	    ("w" todo "WAITING" nil)
 	    ("W" agenda "" ((org-agenda-ndays 21)))
+	    ("n" "NOW view"
+	     ((tags "now/!-DONE-CANCELLED"
+		    ((org-agenda-overriding-header "  --== NOW! ==--")))
+	      (agenda "" ((org-agenda-span 7)
+			  (org-agenda-start-on-weekday nil)))))
+	    ("h" "Hotlist" tags "hot"
+	     ((org-agenda-overriding-header "  === HOTLIST ===")))
 	    ("A" agenda ""
 	     ((org-agenda-skip-function
-	       (lambda nil
+	       (lambda nilp
 		 (org-agenda-skip-entry-if (quote notregexp) "\\=.*\\[#A\\]")))
 	      (org-agenda-ndays 1)
 	      (org-agenda-overriding-header "Today's Priority #A tasks: ")))
@@ -76,8 +84,8 @@
     (setq org-outline-path-complete-in-steps nil)
     (setq org-completion-use-ido t)
     (setq org-refile-targets
-	  '((nil :maxlevel . 2)
-	    (org-agenda-files :maxlevel . 1)))
+	  '((nil :maxlevel . 1)
+	    (org-agenda-files :maxlevel . 2)))
 
     ;; Patterned on:
     ;;  http://doc.norang.ca/org-mode.html
@@ -99,9 +107,9 @@
 	  '(("Effort_ALL" .
 	     "0 0:15 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00")))
     (setq org-capture-templates
-	  `(("t" "Todo" entry (file+headline ,(concat org-directory "capture.org") "Tasks")
+	  `(("t" "Todo" entry (file+headline ,(concat org-directory "inbox.org") "Tasks")
 	     "* TODO %?\n  %i")
-	    ("T" "Todo w/context" entry (file+headline ,(concat org-directory "capture.org") "Tasks")
+	    ("T" "Todo w/context" entry (file+headline ,(concat org-directory "inbox.org") "Tasks")
 	     "* TODO %?\n  %i\n  %a")
             ("j" "Journal" entry (file+headline ,(concat org-directory "journal.org") "Journal")
 	     "* %T\n%?" :prepend t)))))

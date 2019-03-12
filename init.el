@@ -68,7 +68,7 @@
 (server-start)
 
 ;; Start off by always loading the main Org file.
-(find-file "~/Google Drive/org/gtd.org")
+(find-file "~/Google Drive/org/GTD/gtd.org")
 
 ;; This should be penultimate, just before the "disables".
 (require 'cl-macs)
