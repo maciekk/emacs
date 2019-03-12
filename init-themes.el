@@ -81,6 +81,22 @@
     (set-face-attribute 'helm-selection nil :background "#BBFFBB"))
   (mk/add-theme-hook 'hydandata-light #'mk/hydandata-theme-hook))
 
+(use-package twilight
+  :ensure twilight-bright-theme
+  :defer t
+  :init
+  (defun mk/twilight-theme-hook ()
+    (set-face-attribute 'helm-selection nil :background "#BBFFBB"))
+  (mk/add-theme-hook 'twilight-bright #'mk/twilight-theme-hook))
+
+(use-package leuven
+  :ensure leuven-theme
+  :defer t
+  :init
+  (defun mk/leuven-theme-hook ()
+    (set-face-attribute 'helm-selection nil :background "#BBFFBB"))
+  (mk/add-theme-hook 'leuven #'mk/leuven-theme-hook))
+
 (use-package hydra
   :ensure t
   :config
