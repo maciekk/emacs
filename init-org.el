@@ -21,6 +21,7 @@
 
 ;;; Visuals
     (setq org-src-fontify-natively t
+	  org-fontify-whole-heading-line t
 	  org-ellipsis "→"
 	  org-hide-emphasis-markers t)
     ;; Could set (globally?) the keyword faces like so...
@@ -51,6 +52,7 @@
     (setq org-agenda-span 3
 	  org-agenda-start-on-weekday 1
 	  org-agenda-window-setup 'only-window
+	  org-agenda-tags-column 'auto
 	  org-agenda-sorting-strategy '(time-up todo-state-down priority-down))
     (setq org-agenda-files (list org-directory))
     ;; Originally from:
@@ -67,6 +69,11 @@
 			  (org-agenda-start-on-weekday nil)))))
 	    ("h" "Hotlist" tags "hot"
 	     ((org-agenda-overriding-header "  === HOTLIST ===")))
+	    (" " "Agenda"
+             ((agenda "" nil)
+              (tags "REFILE"
+                    ((org-agenda-overriding-header "Tasks to Refile")
+                     (org-tags-match-list-sublevels 'indented)))))
 	    ("A" agenda ""
 	     ((org-agenda-skip-function
 	       (lambda nilp
