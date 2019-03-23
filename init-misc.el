@@ -23,7 +23,7 @@
   ;;(toggle-frame-fullscreen)
   (darkroom-mode)	; switch to darkroom-tentative-mode
 )
-(global-set-key [(control meta return)] `darkroom-mode)
+;(global-set-key [(control meta return)] `darkroom-mode)
 
 ;; newsticker config
 (setq newsticker-url-list
