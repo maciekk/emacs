@@ -136,4 +136,5 @@ Dark:  sub_a_tomic  _b_usybee      _c_reamsody  _d_arktooth   _e_mbers      _f_l
 (bind-keys ("C-c w t"  . mk/themes-hydra/body))
 
 ;; Load default preferred theme.
-(load-theme 'twilight-bright)
+;(load-theme 'twilight-bright)
+(load-theme 'eziam-light)
