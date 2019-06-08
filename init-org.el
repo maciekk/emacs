@@ -118,8 +118,8 @@
 	     "* TODO %?\n  %i")
 	    ("T" "Todo w/context" entry (file+headline ,(concat org-directory "inbox.org") "Tasks")
 	     "* TODO %?\n  %i\n  %a")
-            ("j" "Journal" entry (file+headline ,(concat org-directory "journal.org") "Journal")
-	     "* %T\n%?" :prepend t)))))
+            ("j" "Journal" entry (file+datetree ,(concat org-directory "journal.org"))
+             "* %?\n%c\nEntered on %U\n")))))
 
 ;;; Helper functions
 (defun mk/org-get-todo-keyword-value ()
