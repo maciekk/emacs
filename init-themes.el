@@ -137,4 +137,7 @@ Dark:  sub_a_tomic  _b_usybee      _c_reamsody  _d_arktooth   _e_mbers      _f_l
 
 ;; Load default preferred theme.
 ;(load-theme 'twilight-bright)
-(load-theme 'eziam-light)
+;(load-theme 'eziam-light)
+;(load-theme 'leuven)
+;(load-theme 'doom-nord-light)
+(load-theme 'doom-tomorrow-day)

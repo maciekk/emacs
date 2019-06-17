@@ -11,7 +11,7 @@
     (global-set-key "\C-cl" 'org-store-link)
 
 ;;; Paths
-    (setq org-directory "~/Google Drive/org/GTD/"  ; used for capture, agenda
+    (setq org-directory "~/org/GTD/"  ; used for capture, agenda
 	  org-archive-location "archives/%s_archive::"
 	  org-default-notes-file (concat org-directory "inbox.org"))
 
