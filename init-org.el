@@ -37,6 +37,10 @@
     ;; settings from above.
     (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
 
+    ;; Make Agenda screen use larger fonts
+    (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-hook)
+    (defun my-org-agenda-mode-hook () (text-scale-set 3))
+    
 ;;; Key behaviour
     (setq org-special-ctrl-a nil
 	  org-special-ctrl-e nil
