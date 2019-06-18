@@ -22,7 +22,8 @@
 ;;; Visuals
     (setq org-src-fontify-natively t
 	  org-fontify-whole-heading-line t
-	  org-ellipsis "→"
+	  org-ellipsis "▼"
+	  ; other options: ➥ ▼ → ▾
 	  org-hide-emphasis-markers t)
     ;; Could set (globally?) the keyword faces like so...
     ;; (setq org-todo-keyword-faces
@@ -40,6 +41,12 @@
     ;; Make Agenda screen use larger fonts
     (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-hook)
     (defun my-org-agenda-mode-hook () (text-scale-set 3))
+
+    ;; some ideas from https://zzamboni.org/post/beautifying-org-mode-in-emacs/
+    (font-lock-add-keywords 'org-mode
+                        '(("^ *\\([-]\\) "
+                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
     
 ;;; Key behaviour
     (setq org-special-ctrl-a nil
