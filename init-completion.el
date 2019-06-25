@@ -69,4 +69,5 @@
  ;helm-ff-search-library-in-sexp        t
  ; scroll 8 lines other window using M-<next>/M-<prior>
  helm-scroll-amount                    8
- helm-ff-file-name-history-use-recentf t)
+ helm-ff-file-name-history-use-recentf t
+ helm-candidate-number-limit 200)
