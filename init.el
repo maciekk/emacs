@@ -29,11 +29,8 @@
 		 org org-bullets projectile rainbow-delimiters
 		 undo-tree use-package))
 
-;; Fetch the list of packages available.
-;;(unless package-archive-contents
-;;  (package-refresh-contents))
-;; Actually, we startup with some contents, but incomplete (stale? subset?).
-;; So just do it anyways.
+;; If any package is missing, install it. If that fails, refresh archive
+;; contents and try again.
 (defun install-my-packages ()
   (dolist (package package-list t)
     (unless (package-installed-p package)
