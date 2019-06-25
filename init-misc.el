@@ -16,13 +16,13 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward)
 
-(require 'darkroom)
-(defun my-darkroom-mode ()
-  (interactive)
-  ;; TODO: I can't get these two to reliably work in tandem yet.
-  ;;(toggle-frame-fullscreen)
-  (darkroom-mode)	; switch to darkroom-tentative-mode
-)
+;; (require 'darkroom)
+;; (defun my-darkroom-mode ()
+;;   (interactive)
+;;   ;; TODO: I can't get these two to reliably work in tandem yet.
+;;   ;;(toggle-frame-fullscreen)
+;;   (darkroom-mode)	; switch to darkroom-tentative-mode
+;;)
 ;(global-set-key [(control meta return)] `darkroom-mode)
 
 ;; newsticker config
@@ -34,12 +34,14 @@
 (setq shr-width 80) ; text width of content pane
 
 ;; for moving windows
-(require 'buffer-move)
+;; DISABLED for now, I think ace-move is equivalent, maybe better.
+;;(require 'buffer-move)
 
-(require 'sublimity)
-(require 'sublimity-scroll)
+;; Do these make difference at all?
+;;(require 'sublimity)
+;;(require 'sublimity-scroll)
 ;;(require 'sublimity-map)  ; distracting
-(require 'sublimity-attractive)
+;;(require 'sublimity-attractive)
 
 ;; turn on Powerline-like modeline
 ;;(telephone-line-mode 1)
@@ -48,6 +50,8 @@
 ;;;; More info: https://github.com/seagle0128/doom-modeline
 (require 'doom-modeline)
 (doom-modeline-mode 1)
+;; There is a one-time setup to get glyphs; run this if weird chars in modeline:
+;;   (all-the-icons-install-fonts)
 
 ;; How tall the mode-line should be. It's only respected in GUI.
 ;; If the actual char height is larger, it respects the actual height.
