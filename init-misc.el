@@ -149,3 +149,20 @@
 ;; Function to stylize the irc buffer names.
 (setq doom-modeline-irc-stylize 'identity)
 
+
+
+;; Projectile setup.
+(projectile-mode +1)
+;(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+;; ace jump
+;; TODO
+
+;; ace window
+(global-set-key (kbd "M-o") 'ace-window)
+
+;; ztree
+;; TODO
+
+;; undo-tree
