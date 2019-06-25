@@ -20,6 +20,29 @@
     (add-to-list 'package-archives
 		 (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 
+;; Install missing packages.
+;; Especially useful when starting up first on new machine or installation.
+;; Approach from: https://stackoverflow.com/questions/31079204/emacs-package-install-script-in-init-file
+(setq package-list
+      '(ace-jump-mode ace-window doom-modeline doom-themes fill-column-indicator
+		 ggtags helm helm-org-rifle helm-smex hydra magit markdown-mode
+		 org org-bullets projectile rainbow-delimiters
+		 undo-tree use-package))
+
+;; Fetch the list of packages available.
+;;(unless package-archive-contents
+;;  (package-refresh-contents))
+;; Actually, we startup with some contents, but incomplete (stale? subset?).
+;; So just do it anyways.
+(defun install-my-packages ()
+  (dolist (package package-list t)
+    (unless (package-installed-p package)
+      (package-install package))))
+(unless (ignore-errors (install-my-packages))
+  (progn
+    (package-refresh-contents)
+    (install-my-packages)))
+
 ;; Customizations are kept in separate file.
 ;; load first as they may contain dependencies (e.g., "safe themes" settings).
 (setq custom-file "~/.emacs.d/customizations.el")
