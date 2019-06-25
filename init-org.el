@@ -60,7 +60,7 @@
 	  org-blank-before-new-entry '((heading . auto) (plain-list-item . auto)))
 
 ;;; Agenda
-    (setq org-agenda-span 3
+    (setq org-agenda-span 1
 	  org-agenda-start-on-weekday 1
 	  org-agenda-window-setup 'only-window
 	  org-agenda-tags-column 'auto
@@ -184,3 +184,8 @@
 
 ;; Org rifle mode
 (require 'helm-org-rifle)
+
+;; Quick block entry using structural templates.
+;; Example: < c Tab   gives +BEGIN_SRC and +END_SRC pair
+;; See Info help: (org)Top > Miscellaneous > Structure Templates
+(require 'org-tempo)
