@@ -39,8 +39,13 @@
     (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
 
     ;; Make Agenda screen use larger fonts
+    ;; Only seems to work well on work laptop.
     (add-hook 'org-agenda-mode-hook 'my-org-agenda-mode-hook)
-    (defun my-org-agenda-mode-hook () (text-scale-set 3))
+    (defun my-org-agenda-mode-hook ()
+      (if (not (string-equal (system-name) "Cronos.local"))
+	  (progn
+	    (with-current-buffer "*Org Agenda*"
+	      (text-scale-set 3)))))
 
     ;; some ideas from https://zzamboni.org/post/beautifying-org-mode-in-emacs/
     (font-lock-add-keywords 'org-mode
@@ -65,7 +70,8 @@
 	  org-agenda-window-setup 'only-window
 	  org-agenda-tags-column 'auto
 	  org-agenda-sorting-strategy '(time-up todo-state-down priority-down))
-    (setq org-agenda-files (list org-directory))
+    (setq org-agenda-files (list org-directory
+				 (concat org-directory "/projects")))
     ;; Originally from:
     ;;  http://newartisans.com/2007/08/using-org-mode-as-a-day-planner/
     (setq org-agenda-custom-commands
