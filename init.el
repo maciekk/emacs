@@ -12,22 +12,22 @@
   ;; Comment/uncomment these two lines to enable/disable MELPA and
   ;; MELPA Stable as desired
   (add-to-list 'package-archives
-	       (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+         (cons "melpa" (concat proto "://melpa.org/packages/")) t)
   ;;(add-to-list 'package-archives
   ;;           (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
   (when (< emacs-major-version 24)
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives
-		 (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+     (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 
 ;; Install missing packages.
 ;; Especially useful when starting up first on new machine or installation.
 ;; Approach from: https://stackoverflow.com/questions/31079204/emacs-package-install-script-in-init-file
 (setq package-list
       '(ace-jump-mode ace-window doom-modeline doom-themes fill-column-indicator
-		 ggtags helm helm-org-rifle helm-smex hydra magit markdown-mode
-		 org org-bullets projectile rainbow-delimiters
-		 undo-tree use-package))
+     ggtags helm helm-org-rifle helm-smex hydra magit markdown-mode
+     org org-bullets projectile rainbow-delimiters
+     undo-tree use-package))
 
 ;; If any package is missing, install it. If that fails, refresh archive
 ;; contents and try again.
@@ -46,7 +46,7 @@
 (load custom-file 'noerror)
 
 (defun maybe-load-file (fname)
-  "Load the file if it exists."
+  "Load file FNAME if it exists."
   (if (file-readable-p fname)
       (load-file fname)))
 
@@ -93,9 +93,9 @@
 ;; This should be penultimate, just before the "disables".
 (require 'cl-macs)
 (message "init.el loaded in %.1fs"
-	 (cl-destructuring-bind (hi lo usec psec) (current-time)
-	   (- (+ hi lo) (+ (nth 0 *emacs-load-start*)
-			   (nth 1 *emacs-load-start*)))))
+   (cl-destructuring-bind (hi lo usec psec) (current-time)
+     (- (+ hi lo) (+ (nth 0 *emacs-load-start*)
+         (nth 1 *emacs-load-start*)))))
 
 ;; These Emacs-added "disables" ideally should be last.
 (put 'narrow-to-region 'disabled nil)
